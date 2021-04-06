@@ -54,6 +54,21 @@ with open(csvpath) as csvfile:
     print("Greatest Increase in Profits: ", Greatest_Increase_Date, "$", Greatest_Profit_Increase,")")
     print("Greatest Decrease in Profits: ", Greatest_Decrease_Date, "($", Greatest_Profit_Decrease,")")
 
+output_file = 'Analysis/PyBank.txt'
+with open(output_file, "w", newline="") as datafile:
+
+    #write print statements into output text file
+    datafile.write("Financial Analysis\n")
+    datafile.write("----------------------------------\n")
+    datafile.write(f"Total Months: {len(Dates)}\n")
+    datafile.write(f"Net Total: $ {sum(Profits_Losses)}\n")
+    datafile.write(f"Average Change: $ {round(Average_Change)}\n")
+    datafile.write(f"Greatest Increase in Profits:  {Greatest_Increase_Date} (${Greatest_Profit_Increase})\n")
+    datafile.write(f"Greatest Decrease in Profits:  {Greatest_Decrease_Date} (${Greatest_Profit_Decrease})\n")
+
+datafile.close()
+    
+
     
 
         

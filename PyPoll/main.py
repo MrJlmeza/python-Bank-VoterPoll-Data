@@ -47,7 +47,7 @@ with open(output_file, "w", newline="") as datafile:
 
     datafile.write("Election Results\n")
     datafile.write("-------------------------------\n")
-    datafile.write(F"Total Votes: , len(Votes)\n")
+    datafile.write(f"Total Votes:  {len(Votes)}\n")
     datafile.write("--------------------------------\n")
 
     
@@ -55,7 +55,10 @@ with open(output_file, "w", newline="") as datafile:
     for Candidate in Candidates:
         Percentage = (round(float(Candidate_Votes[Candidate]) / len(Votes), 2)*100)
 
+        
         print(f"{Candidate}: {Percentage} ({Candidate_Votes[Candidate]})")
+        datafile.write(f"{Candidate}: {Percentage} ({Candidate_Votes[Candidate]})\n")
+        
 
         if Winning_Votes < Candidate_Votes[Candidate]:
             Winning_Votes = Candidate_Votes[Candidate]
@@ -66,7 +69,7 @@ with open(output_file, "w", newline="") as datafile:
     print("----------------------------------------")
 
     datafile.write("----------------------------------------\n")
-    datafile.write(F"Winner: , str(Winner)\n")
+    datafile.write(f"Winner:  {Winner}\n")
     datafile.write("----------------------------------------")
 
 
